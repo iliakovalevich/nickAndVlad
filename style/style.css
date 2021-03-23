@@ -27,6 +27,11 @@
     font-size: 80px;
     line-height: 96px;
     color: #FFFFFF;
+  
+}
+#mySpan{
+    max-width: 348px;
+    overflow: hidden;
 }
 
 .calculator__row {
