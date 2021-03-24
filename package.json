@@ -1,0 +1,19 @@
+{
+    "name": "package",
+    "version": "1.0.0",
+    "description": "A calculator is a device that performs arithmetic operations on numbers. The simplest calculators can do only addition, subtraction, multiplication, and division. More sophisticated calculators can handle exponent ial operations, roots, logarithm s, trigonometric functions, and hyperbolic functions. Legendary project.",
+    "main": "back.js",
+    "scripts": {
+        "test": "index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "test"
+    },
+    "author": "ilya nikita vlad",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/iliakovalevich/nickAndVlad/issues"
+    },
+    "homepage": "https://github.com/iliakovalevich/nickAndVlad#readme"
+}
