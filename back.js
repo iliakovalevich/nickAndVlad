@@ -1,5 +1,11 @@
 function insert(num) {
-    document.getElementById("mySpan").textContent = document.getElementById("mySpan").textContent + num;
+    let symbols = ["/", "-", "+", "*"];
+    if (symbols.includes(num) && document.getElementById("mySpan").textContent.slice(-1).includes(num)) {
+
+    } else {
+        document.getElementById("mySpan").textContent =
+            document.getElementById("mySpan").textContent + num;
+    }
 }
 
 function clean() {
@@ -7,17 +13,17 @@ function clean() {
 }
 
 function equal() {
-    let exp = document.getElementById("mySpan").textContent;
+    let result = document.getElementById("mySpan").textContent;
     try {
-        if (exp) {
-            if (exp.indexOf('%') > -1) {
-                exp.replace("%", "*100/")
+        if (result) {
+            if (result.includes('%')) {
+                result.replace("%", "*100/")
             }
-            document.getElementById("mySpan").textContent = eval(exp);
-            debugger;
+            document.getElementById("mySpan").textContent = eval(result);
         }
     } catch (err) {
-        alert('You have a mistake in your input, please press C and try again')
+        alert('You have a mistake in your input');
+        clean();
     }
 
 }
@@ -28,15 +34,3 @@ function plusMinus() {
     document.getElementById("mySpan").textContent = number;
 }
 
-function back() {
-    let exp = document.getElementById("mySpan").textContent;
-    document.getElementById("mySpan").textContent = exp.substring(0, exp.length - 1);
-}
-
-function calcPercent(str) {
-    let mySplits = str.split("%");
-    console.log(mySplits);
-    alert(mySplits);
-    // a = form.a.value/100;
-    // b = a*form.b.value;
-}
