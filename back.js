@@ -1,10 +1,10 @@
 function insert(num) {
-    let symbols = ["/", "-", "+", "*"];
-    if (symbols.includes(num) && document.getElementById("mySpan").textContent.slice(-1).includes(num)) {
-
-    } else {
-        document.getElementById("mySpan").textContent =
-            document.getElementById("mySpan").textContent + num;
+    let symbols = ["/", "-", "+", "*", "%"];
+    if (!(symbols.includes(num) && document.getElementById("mySpan").textContent.slice(-1).includes(num))) {
+        if (!(document.getElementById("mySpan").textContent.length == 0 && num == "0")) {
+            document.getElementById("mySpan").textContent =
+                document.getElementById("mySpan").textContent + num;
+        }
     }
 }
 
@@ -33,4 +33,3 @@ function plusMinus() {
     number *= -1;
     document.getElementById("mySpan").textContent = number;
 }
-
