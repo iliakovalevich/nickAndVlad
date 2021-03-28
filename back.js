@@ -1,15 +1,25 @@
 function insert(num) {
     let symbols = ["/", "-", "+", "*", "%"];
-    if (!(symbols.includes(num) && document.getElementById("mySpan").textContent.slice(-1).includes(num))) {
-        if (!(document.getElementById("mySpan").textContent.length == 0 && num == "0")) {
-            document.getElementById("mySpan").textContent =
-                document.getElementById("mySpan").textContent + num;
-        }
+
+    if (symbols.includes(document.getElementById("mySpan").textContent.slice(-1)) && symbols.includes(num)) {
+        return
     }
+
+    if (document.getElementById("mySpan").textContent.includes(".") && num == ".") {
+        return
+    }
+
+    if (document.getElementById("mySpan").textContent == "0" && num != ".") {
+        document.getElementById("mySpan").textContent = ""
+    }
+
+    document.getElementById("mySpan").textContent =
+        document.getElementById("mySpan").textContent + num;
+
 }
 
 function clean() {
-    document.getElementById("mySpan").textContent = "";
+    document.getElementById("mySpan").textContent = "0";
 }
 
 function equal() {
