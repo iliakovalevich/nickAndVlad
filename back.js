@@ -1,21 +1,32 @@
 function insert(num) {
-    let symbols = ["/", "-", "+", "*", "%"];
+
+    if (document.getElementById("mySpan").textContent == "0" && num != ".") {
+        document.getElementById("mySpan").textContent = "";
+    }
+
+    if (checkForCorrectInput(num)) {
+        document.getElementById("mySpan").textContent =
+            document.getElementById("mySpan").textContent + num;
+    }
+
+}
+
+function checkForCorrectInput(num) {
+    let symbols = ["-", "/", "+", "*", "%"];
 
     if (symbols.includes(document.getElementById("mySpan").textContent.slice(-1)) && symbols.includes(num)) {
-        return
+        return false;
     }
 
     if (document.getElementById("mySpan").textContent.includes(".") && num == ".") {
-        return
+        return false;
     }
 
-    if (document.getElementById("mySpan").textContent == "0" && num != ".") {
-        document.getElementById("mySpan").textContent = ""
+    if (document.getElementById("mySpan").textContent.length == 9) {
+        return false;
     }
 
-    document.getElementById("mySpan").textContent =
-        document.getElementById("mySpan").textContent + num;
-
+    return true;
 }
 
 function clean() {

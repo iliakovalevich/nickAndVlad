@@ -27,12 +27,11 @@
     font-size: 80px;
     line-height: 96px;
     color: #FFFFFF;
-
 }
-#mySpan{
+
+#mySpan {
     max-width: 348px;
     overflow: hidden;
-    word-wrap: break-word;
 }
 
 .calculator__row {
@@ -61,9 +60,9 @@
     color: #FFFFFF;
     cursor: pointer;
 }
+
 .wide-btn {
     width: 183px;
     height: 90px;
     display: flex;
-
 }
