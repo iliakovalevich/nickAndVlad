@@ -32,6 +32,7 @@
 #mySpan{
     max-width: 348px;
     overflow: hidden;
+    word-wrap: break-word;
 }
 
 .calculator__row {
