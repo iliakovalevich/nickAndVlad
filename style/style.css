@@ -14,7 +14,7 @@
 
 .calculator__result {
     position: relative;
-    height: 200px;
+    height: 100px;
 }
 
 .calculator__result span {

@@ -1,12 +1,12 @@
 function insert(num) {
 
-    if (document.getElementById("mySpan").textContent == "0" && num != ".") {
-        document.getElementById("mySpan").textContent = "";
+    if (document.getElementById("mySpanLower").textContent == "0" && num != ".") {
+        document.getElementById("mySpanLower").textContent = "";
     }
 
     if (checkForCorrectInput(num)) {
-        document.getElementById("mySpan").textContent =
-            document.getElementById("mySpan").textContent + num;
+        document.getElementById("mySpanLower").textContent =
+            document.getElementById("mySpanLower").textContent + num;
     }
 
 }
@@ -14,15 +14,15 @@ function insert(num) {
 function checkForCorrectInput(num) {
     let symbols = ["-", "/", "+", "*", "%"];
 
-    if (symbols.includes(document.getElementById("mySpan").textContent.slice(-1)) && symbols.includes(num)) {
+    if (symbols.includes(document.getElementById("mySpanLower").textContent.slice(-1)) && symbols.includes(num)) {
         return false;
     }
 
-    if (document.getElementById("mySpan").textContent.includes(".") && num == ".") {
+    if (document.getElementById("mySpanLower").textContent.includes(".") && num == ".") {
         return false;
     }
 
-    if (document.getElementById("mySpan").textContent.length == 9) {
+    if (document.getElementById("mySpanLower").textContent.length == 9) {
         return false;
     }
 
@@ -30,17 +30,19 @@ function checkForCorrectInput(num) {
 }
 
 function clean() {
-    document.getElementById("mySpan").textContent = "0";
+    document.getElementById("mySpanLower").textContent = "0";
+    document.getElementById("mySpanUpper").textContent = "";
 }
 
 function equal() {
-    let result = document.getElementById("mySpan").textContent;
+    let result = document.getElementById("mySpanLower").textContent;
     try {
+        document.getElementById("mySpanUpper").textContent = result;
         if (result) {
             if (result.includes('%')) {
                 result.replace("%", "*100/")
             }
-            document.getElementById("mySpan").textContent = eval(result);
+            document.getElementById("mySpanLower").textContent = eval(result);
         }
     } catch (err) {
         alert('You have a mistake in your input');
@@ -50,7 +52,7 @@ function equal() {
 }
 
 function plusMinus() {
-    let number = document.getElementById("mySpan").textContent;
+    let number = document.getElementById("mySpanLower").textContent;
     number *= -1;
-    document.getElementById("mySpan").textContent = number;
+    document.getElementById("mySpanLower").textContent = number;
 }
