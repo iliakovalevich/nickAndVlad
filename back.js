@@ -1,7 +1,13 @@
 function insert(num) {
+    let str = document.getElementById("mySpanLower").textContent + num;
 
     if (document.getElementById("mySpanLower").textContent == "0" && num != ".") {
         document.getElementById("mySpanLower").textContent = "";
+    }
+
+    if (str.length > 1) {
+        clean();
+        document.getElementById("mySpanLower").textContent = checkTwoMinuses(str);
     }
 
     if (checkForCorrectInput(num)) {
@@ -9,6 +15,20 @@ function insert(num) {
             document.getElementById("mySpanLower").textContent + num;
     }
 
+}
+
+function checkTwoMinuses(str) {
+    let str1 = str;
+    let strSlice2 = str.slice(0, (length - 1)).slice(-1);
+    let strSlice1 = str.slice(-1);
+    debugger;
+    if ((strSlice1 == '-') && (strSlice2 == '-')) {
+        debugger
+        let strOut = str.slice(0, str.length - 2);
+        strOut += '+';
+        return strOut;
+    }
+    return str1.slice(0, length - 1);
 }
 
 function checkForCorrectInput(num) {
@@ -30,8 +50,8 @@ function checkForCorrectInput(num) {
 }
 
 function clean() {
-    document.getElementById("mySpanLower").textContent = "0";
-    document.getElementById("mySpanUpper").textContent = "";
+    document.getElementById("mySpanLower").textContent = '';
+    document.getElementById("mySpanUpper").textContent = '';
 }
 
 function equal() {
@@ -51,8 +71,9 @@ function equal() {
 
 }
 
+
 function plusMinus() {
-    let number = document.getElementById("mySpanLower").textContent;
+    let number = document.getElementById("mySpanLower").textContent ;
     number *= -1;
     document.getElementById("mySpanLower").textContent = number;
 }
