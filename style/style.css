@@ -29,7 +29,12 @@
     color: #FFFFFF;
 }
 
-#mySpan {
+#mySpanLower {
+    max-width: 348px;
+    overflow: hidden;
+}
+
+#mySpanUpper {
     max-width: 348px;
     overflow: hidden;
 }
