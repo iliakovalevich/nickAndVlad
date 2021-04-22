@@ -1,37 +1,42 @@
 import React from 'react';
+import Button from './Button';
 
 
 const Buttons = () => {
     return (
-        <div class="calculator__btns">
-            <div class="calculator__row">
-                <div class="calculator__btn" onclick="clean()">C</div>
-                <div class="calculator__btn" onclick="insert('%')">%</div>
-                <div class="calculator__btn" onclick="plusMinus()">+/-</div>
-                <div class="calculator__btn" onclick="insert('/')">÷</div>
+        <div className="calculator__btns">
+            <div className="calculator__row">
+{/* 
+            Example with handler 
+            <Button buttonValue='C' buttonType='calculator__btn' handler={handlerClear} /> */}
+
+                <Button buttonValue='C' buttonType='calculator__btn' />
+                <Button buttonValue='%' buttonType='calculator__btn' />
+                <Button buttonValue='+/-' buttonType='calculator__btn' />
+                <Button buttonValue='÷' buttonType='calculator__btn' />
             </div>
-            <div class="calculator__row">
-                <div class="calculator__btn" onclick="insert('7')">7</div>
-                <div class="calculator__btn" onclick="insert('8')">8</div>
-                <div class="calculator__btn" onclick="insert('9')">9</div>
-                <div class="calculator__btn" onclick="insert('*')">x</div>
+            <div className="calculator__row">
+                <Button buttonValue={7} buttonType='calculator__btn' />
+                <Button buttonValue={8} buttonType='calculator__btn' />
+                <Button buttonValue={9} buttonType='calculator__btn' />
+                <Button buttonValue='X' buttonType='calculator__btn' />
             </div>
-            <div class="calculator__row">
-                <div class="calculator__btn" onclick="insert('4')">4</div>
-                <div class="calculator__btn" onclick="insert('5')">5</div>
-                <div class="calculator__btn" onclick="insert('6')">6</div>
-                <div class="calculator__btn" onclick="insert('-')">-</div>
+            <div className="calculator__row">
+                <Button buttonValue={4} buttonType='calculator__btn' />
+                <Button buttonValue={5} buttonType='calculator__btn' />
+                <Button buttonValue={6} buttonType='calculator__btn' />
+                <Button buttonValue='-' buttonType='calculator__btn' />
             </div>
-            <div class="calculator__row">
-                <div class="calculator__btn" onclick="insert('1')">1</div>
-                <div class="calculator__btn" onclick="insert('2')">2</div>
-                <div class="calculator__btn" onclick="insert('3')">3</div>
-                <div class="calculator__btn" onclick="insert('+')">+</div>
+            <div className="calculator__row">
+                <Button buttonValue={1} buttonType='calculator__btn' />
+                <Button buttonValue={2} buttonType='calculator__btn' />
+                <Button buttonValue={3} buttonType='calculator__btn' />
+                <Button buttonValue='+' buttonType='calculator__btn' />
             </div>
-            <div class="calculator__row">
-                <div class="wide-btn calculator__btn" onclick="insert('0')">0</div>
-                <div class="calculator__btn" onclick="insert('.')">,</div>
-                <div class="calculator__btn" onclick="equal()">=</div>
+            <div className="calculator__row">
+                <Button buttonValue={0} buttonType='wide-btn calculator__btn' />
+                <Button buttonValue=',' buttonType='calculator__btn' />
+                <Button buttonValue='=' buttonType='calculator__btn' />
             </div>
         </div>
     )

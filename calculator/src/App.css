@@ -64,6 +64,8 @@
     line-height: 48px;
     color: #FFFFFF;
     cursor: pointer;
+    border-color:transparent;
+    outline: none;
 }
 
 .wide-btn {
