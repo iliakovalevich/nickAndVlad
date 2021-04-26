@@ -2,7 +2,7 @@
     "name": "calculator",
     "version": "0.1.0",
     "private": true,
-    "homepage": "http://gitname.github.io/nickAndVlad",
+    "homepage": "http://iliakovalevich.github.io/nickAndVlad",
     "dependencies": {
         "@testing-library/jest-dom": "^5.12.0",
         "@testing-library/react": "^11.2.6",
