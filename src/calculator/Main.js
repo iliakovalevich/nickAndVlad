@@ -33,6 +33,7 @@ class Main extends Component {
                 }
                 break;
             case "C":
+                //newContent = newContent.substr(0, newContent.length - 1);
                 newContent = '';
                 break;
             case "=":
@@ -115,6 +116,7 @@ class Main extends Component {
                     marginTop: 100,
                     border: 0,
                     background: 'linear-gradient(to bottom right, #ffbc00 30%, #fe006d 115%)'
+                    //background: 'radial-gradient(at top left, #ffb100 50%, #fe006d 110%)'
                 }
             }>
                 <WorkArea content={this.state.content}/>

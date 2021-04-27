@@ -8,11 +8,18 @@ export default class WorkArea extends Component {
 
     toFocus = () => {
         let event = document.getElementById('workArea')
+       // event.focus();
+       // event.selectionStart = event.value.length + 1;
         event.value = this.props.content;
         if (event.setSelectionRange) {
             event.setSelectionRange(this.props.content.length, this.props.content.length)
         }
         event.focus();
+        // this.setState(
+        //     {
+        //         text:this.props.content
+        //     }
+        // )
         return this.props.content;
     }
 
