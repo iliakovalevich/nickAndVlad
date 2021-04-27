@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-(Site link)[https://clever-bhaskara-39575b.netlify.app/]
+[Site link](https://clever-bhaskara-39575b.netlify.app/)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
