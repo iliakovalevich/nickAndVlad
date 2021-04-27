@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nickAndVlad/static/css/main.40ce4bfe.chunk.css",
+    "main.js": "/nickAndVlad/static/js/main.d998c3bc.chunk.js",
+    "main.js.map": "/nickAndVlad/static/js/main.d998c3bc.chunk.js.map",
+    "runtime-main.js": "/nickAndVlad/static/js/runtime-main.67346049.js",
+    "runtime-main.js.map": "/nickAndVlad/static/js/runtime-main.67346049.js.map",
+    "static/js/2.7ae9993f.chunk.js": "/nickAndVlad/static/js/2.7ae9993f.chunk.js",
+    "static/js/2.7ae9993f.chunk.js.map": "/nickAndVlad/static/js/2.7ae9993f.chunk.js.map",
+    "static/js/3.7976269e.chunk.js": "/nickAndVlad/static/js/3.7976269e.chunk.js",
+    "static/js/3.7976269e.chunk.js.map": "/nickAndVlad/static/js/3.7976269e.chunk.js.map",
+    "index.html": "/nickAndVlad/index.html",
+    "static/css/main.40ce4bfe.chunk.css.map": "/nickAndVlad/static/css/main.40ce4bfe.chunk.css.map",
+    "static/js/2.7ae9993f.chunk.js.LICENSE.txt": "/nickAndVlad/static/js/2.7ae9993f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.67346049.js",
+    "static/js/2.7ae9993f.chunk.js",
+    "static/css/main.40ce4bfe.chunk.css",
+    "static/js/main.d998c3bc.chunk.js"
+  ]
+}
