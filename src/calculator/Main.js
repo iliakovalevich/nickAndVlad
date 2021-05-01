@@ -110,12 +110,12 @@ class Main extends Component {
         return (
             <div style={
                 {
-                    width: 350,
-                    height: 600,
-                    marginLeft: 600,
-                    marginTop: 100,
-                    border: 0,
-                    background: 'linear-gradient(to bottom right, #ffbc00 30%, #fe006d 115%)'
+                    width: 350, //ширина
+                    height: 600, //высота
+                    marginLeft: 600, //внешний отсутп влево 
+                    marginTop: 100, //внешний отсутп вверх
+                    border: 0, //убираем границу
+                    background: 'linear-gradient(to bottom right, #ffbc00 30%, #fe006d 115%)' //цвет границы
                     //background: 'radial-gradient(at top left, #ffb100 50%, #fe006d 110%)'
                 }
             }>
@@ -148,18 +148,18 @@ class Main extends Component {
                     <Button style={{
                         width:172,
                         height: 77,
-                        display:"flex",
-                        justifyContent:"left",
-                        padding: 20,
-                        alignItems:"center",
-                        textAlign: 'left',
-                        boxSizing:"border-box",
-                        backgroundColor: 'rgba(255,255,255,0.2)',
-                        border: 'rgba(1,1,1,0)',
-                        color: "white",
-                        fontSize:30,
-                        fontFamily:'Coronetscript, cursive',
-                        outline:'none'
+                        display:"flex", //тип display Для расположения элементов 
+                        justifyContent:"left", //расположение слева, доступно только при display flex
+                        padding: 20, // внутренний отсутп
+                        alignItems:"center", //распложение по-центру по высоте , доступно только с display flex
+                        textAlign: 'left', //расположение текста по левому краю
+                        boxSizing:"border-box", //Свойство box-sizing позволяет изменить этот алгоритм, чтобы свойства width и height задавали размеры не контента, а размеры блока.
+                        backgroundColor: 'rgba(255,255,255,0.2)', //цвет бэкграунда
+                        border: 'rgba(1,1,1,0)', //цвет границы
+                        color: "white", //цвет
+                        fontSize:30, //размер шрифта
+                        fontFamily:'Coronetscript, cursive', //название шрифта
+                        outline:'none' //подстветка по бокам элемента когда наводишься на него через tab 
                     }} text={"0"} clickHandler={this.clickHandler}/>
                     <Button text={","} clickHandler={this.clickHandler}/>
                     <Button text={"="} clickHandler={this.clickHandler}/>

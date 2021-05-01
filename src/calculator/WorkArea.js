@@ -36,25 +36,25 @@ export default class WorkArea extends Component {
 
             <div>
                 <input id='workArea' style={{
-                    height: 200
+                    height: 200 //высота
                     ,
-                    width: 350
+                    width: 350 //ширина
                     ,
-                    fontSize: 35
+                    fontSize: 35 //размер шрифта
                     ,
-                    textAlign: "right"
+                    textAlign: "right" //распложение текста справа
                     ,
-                    paddingTop: 110
+                    paddingTop: 110 //внутренний отступ
                     ,
-                    backgroundColor: 'rgba(1,1,1,0)'
+                    backgroundColor: 'rgba(1,1,1,0)' //цвет бэкграунда
                     ,
-                    border: 0
+                    border: 0 //убираем границу
                     ,
-                    boxSizing: "border-box"
+                    boxSizing: "border-box" //Свойство box-sizing позволяет изменить этот алгоритм, чтобы свойства width и height задавали размеры не контента, а размеры блока.
                     ,
-                    color: 'white'
+                    color: 'white' //цвет
                     ,
-                    outline:'none'
+                    outline:'none'//подстветка по бокам элемента когда наводишься на него через tab 
                 }
                 }
                        value=
