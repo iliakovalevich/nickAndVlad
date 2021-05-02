@@ -4,7 +4,9 @@ import Button from "./Button";
 
 class Main extends Component {
 
+    //состояние компонента
     state = {
+        //не было null ошибки
         content: ""
     }
 
@@ -18,7 +20,6 @@ class Main extends Component {
                 let changeMark = new RegExp(/[+\-x/]?(\d,?)+/g);
                 let values = Array.from(newContent.matchAll(changeMark));
                 let toChange = values[values.length - 1][0];
-                console.log(toChange);
                 if(toChange.indexOf('x') != -1 || toChange.indexOf('/') != -1) {
                     let newPart = toChange.substr(0, 1);
                     newPart += '-';
@@ -33,7 +34,6 @@ class Main extends Component {
                 }
                 break;
             case "C":
-                //newContent = newContent.substr(0, newContent.length - 1);
                 newContent = '';
                 break;
             case "=":
@@ -62,20 +62,19 @@ class Main extends Component {
             case '-':
             case 'x':
             case '/':
-                if(newContent == '' ||
-                    newContent.substr(newContent.length - 1).match(/[,+\-x/]/g) != null)
+                if(newContent == '' || newContent.substr(newContent.length - 1).match(/[,+\-x/]/g) != null)
                     break;
                 newContent += event.target.value;
                 break;
             case '%':
-                if(newContent == '' ||
-                    newContent.substr(newContent.length - 1).match(/[,+\-x/%]/g) != null)
+                if(newContent == '' || newContent.substr(newContent.length - 1).match(/[,+\-x/%]/g) != null)
                     break;
+
                 newContent += event.target.value;
                 break;
             default:
                 if(newContent.substr(newContent.length - 1).match(/%/g) == null)
-                newContent += event.target.value;
+                    newContent += event.target.value;
         }
 
         this.setState({
