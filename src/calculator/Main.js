@@ -6,30 +6,51 @@ class Main extends Component {
 
     //состояние компонента
     state = {
-        //не было null ошибки
+        //не было null ошибки при первом запуске default падает
         content: ""
     }
 
     clickHandler = (event) => {
+        // достаем строку 
         let newContent = this.state.content;
 
 
         switch (event.target.value) {
             case "+/-":
+                //при пустом ломаем
                 if(newContent == '') break;
-                let changeMark = new RegExp(/[+\-x/]?(\d,?)+/g);
+                //regex для + - все числа
+                let changeMark = new RegExp(/[+\-x]?(\d)+/g);
+                //достаем числа возвращает массивы чисел со знаками
                 let values = Array.from(newContent.matchAll(changeMark));
+                debugger
+                //достаем последнее число и меняем ему знак т.к. разбивается на массивы массивов нам надо целое значение первый элемент
                 let toChange = values[values.length - 1][0];
-                if(toChange.indexOf('x') != -1 || toChange.indexOf('/') != -1) {
+                debugger
+                //проверка на умножение или деление т.к. разные алгоритмы для замены знаков
+                if (toChange.indexOf('x') != -1 || toChange.indexOf('/') != -1) {
+                    //достали знак / или X
                     let newPart = toChange.substr(0, 1);
+                    debugger
+                    //добавили к нему -
                     newPart += '-';
+                    //добавляем остальную часть
                     newPart += toChange.substr(1);
-                    newContent = newContent.replace(toChange,newPart);
-                } else if(toChange.indexOf('+') != -1) {
+                    debugger
+                    //заменяем
+                    newContent = newContent.replace(toChange, newPart)
+                }
+                // заменя для + на -
+                else if(toChange.indexOf('+') != -1) {
                     newContent = newContent.replace(toChange, toChange.replace('+','-'));
-                } else if(toChange.indexOf('-') != -1) {
+                    
+                } 
+                // заменя для - на + 
+                else if(toChange.indexOf('-') != -1) {
                     newContent = newContent.replace(toChange, toChange.replace('-','+'));
-                } else {
+                } 
+                // заменя для ничего на 
+                else {
                     newContent = newContent.replace(toChange, '-' + toChange);
                 }
                 break;
@@ -43,7 +64,7 @@ class Main extends Component {
                 newContent = newContent.replaceAll(",", '.');
                 if(newContent.substr(0,1) == '0')
                     newContent = newContent.replace('0', '');
-                let reg = new RegExp(/\d*%/g);
+                let reg = new RegExp(/\d*%/g);//regex для числа с процентом
                 newContent = this.evalPercent(Array.from(newContent.matchAll(reg)), newContent);
                 try {
                     newContent = String(eval(newContent));
@@ -52,9 +73,8 @@ class Main extends Component {
                 }
                 break;
             case ',':
-                if(newContent == '' ||
-                    newContent.substr(newContent.length - 1).match(/[,+\-x/]/g) != null
-                || (newContent + ',').match(/(\d+,\d+),/g) != null)
+                //проверка на два одинаковых знака
+                if(newContent == '' || newContent.substr(newContent.length - 1).match(/[,+\-x/]/g) != null || (newContent + ',').match(/(\d+,\d+),/g) != null)
                     break;
                 newContent += event.target.value;
                 break;
@@ -69,7 +89,6 @@ class Main extends Component {
             case '%':
                 if(newContent == '' || newContent.substr(newContent.length - 1).match(/[,+\-x/%]/g) != null)
                     break;
-
                 newContent += event.target.value;
                 break;
             default:
@@ -85,25 +104,27 @@ class Main extends Component {
 
     evalPercent(arr, input) {
         if(arr.length == 0) return input;
-        let reg = new RegExp(/[\d.,]*%/g);
+        let reg = new RegExp(/[\d.,]*%/g); // d - соотв любому цифр симоволу (0-9) , соответствует (. , %)
         let options = new RegExp(/[+\-*/]/g);
         for(let i = 0; i < arr.length; i++) {
+            debugger
             let match = reg.exec(input);
+            debugger
             let toEv = input.substr(0, match.index);
+            debugger
             let isOptions = options.exec(toEv);
+            debugger
             toEv = toEv.substr(0, toEv.length - 1);
             if(isOptions == null) {
                 input = input.replace(match, '0');
             } else {
-                let toPercentage = eval(toEv.replace(',','.'));
-                let percent = Number(match[0].replace('%', ''));
-                input = input.replace(match[0], String(toPercentage * (percent / 100)));
+                let toPercentage = eval(toEv.replace(',','.'));//число , проценты которого считаем
+                let percent = Number(match[0].replace('%', ''));//само процентное число
+                input = input.replace(match[0], String(toPercentage * (percent / 100)));//считаем
             }
-            console.log("input: ", input, '   toEv: ', toEv);
         }
         return input;
     }
-
 
     render() {
         return (
