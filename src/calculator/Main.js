@@ -64,8 +64,14 @@ class Main extends Component {
                 newContent = newContent.replaceAll(",", '.');
                 if(newContent.substr(0,1) == '0')
                     newContent = newContent.replace('0', '');
-                let reg = new RegExp(/\d*%/g);//regex для числа с процентом
+                let reg = new RegExp(/\d*%/g); //regex для числа с процентом
                 newContent = this.evalPercent(Array.from(newContent.matchAll(reg)), newContent);
+                
+                var fs = require('browserify-fs');
+                debugger
+                fs.writeFile('/logs.txt', newContent, function() {
+                    
+                });
                 try {
                     newContent = String(eval(newContent));
                 } catch (err) {
