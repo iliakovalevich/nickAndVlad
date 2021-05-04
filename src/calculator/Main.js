@@ -23,20 +23,16 @@ class Main extends Component {
                 let changeMark = new RegExp(/[+\-x]?(\d)+/g);
                 //достаем числа возвращает массивы чисел со знаками
                 let values = Array.from(newContent.matchAll(changeMark));
-                debugger
                 //достаем последнее число и меняем ему знак т.к. разбивается на массивы массивов нам надо целое значение первый элемент
                 let toChange = values[values.length - 1][0];
-                debugger
                 //проверка на умножение или деление т.к. разные алгоритмы для замены знаков
                 if (toChange.indexOf('x') != -1 || toChange.indexOf('/') != -1) {
                     //достали знак / или X
                     let newPart = toChange.substr(0, 1);
-                    debugger
                     //добавили к нему -
                     newPart += '-';
                     //добавляем остальную часть
                     newPart += toChange.substr(1);
-                    debugger
                     //заменяем
                     newContent = newContent.replace(toChange, newPart)
                 }
@@ -66,12 +62,6 @@ class Main extends Component {
                     newContent = newContent.replace('0', '');
                 let reg = new RegExp(/\d*%/g); //regex для числа с процентом
                 newContent = this.evalPercent(Array.from(newContent.matchAll(reg)), newContent);
-                
-                var fs = require('browserify-fs');
-                debugger
-                fs.writeFile('/logs.txt', newContent, function() {
-                    
-                });
                 try {
                     newContent = String(eval(newContent));
                 } catch (err) {
@@ -102,6 +92,8 @@ class Main extends Component {
                     newContent += event.target.value;
         }
 
+        //вывод ответа на экран
+    
         this.setState({
                 content: newContent
             }
@@ -110,21 +102,28 @@ class Main extends Component {
 
     evalPercent(arr, input) {
         if(arr.length == 0) return input;
-        let reg = new RegExp(/[\d.,]*%/g); // d - соотв любому цифр симоволу (0-9) , соответствует (. , %)
+        //для поиска чисел с процентами
+        let reg = new RegExp(/[\d.,]*%/g);
         let options = new RegExp(/[+\-*/]/g);
         for(let i = 0; i < arr.length; i++) {
-            debugger
+            //возвращает массив результатов или null которые подходят под regex
             let match = reg.exec(input);
             debugger
+            //берем число от которого надо брать процента
             let toEv = input.substr(0, match.index);
             debugger
+            //
             let isOptions = options.exec(toEv);
             debugger
             toEv = toEv.substr(0, toEv.length - 1);
+            debugger
             if(isOptions == null) {
+                debugger
                 input = input.replace(match, '0');
             } else {
+                debugger
                 let toPercentage = eval(toEv.replace(',','.'));//число , проценты которого считаем
+                debugger
                 let percent = Number(match[0].replace('%', ''));//само процентное число
                 input = input.replace(match[0], String(toPercentage * (percent / 100)));//считаем
             }
