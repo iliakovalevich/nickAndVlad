@@ -109,12 +109,13 @@ class Main extends Component {
             //возвращает массив результатов или null которые подходят под regex
             let match = reg.exec(input);
             debugger
-            //берем число от которого надо брать процента
+            //берем число 
             let toEv = input.substr(0, match.index);
             debugger
-            //
+            //знак какой отнимать или добавлять
             let isOptions = options.exec(toEv);
             debugger
+            //от числа удаляем знак
             toEv = toEv.substr(0, toEv.length - 1);
             debugger
             if(isOptions == null) {
